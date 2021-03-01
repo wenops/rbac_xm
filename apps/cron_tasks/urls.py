@@ -19,10 +19,11 @@ from django.urls import path
 app_name = 'cron_tasks'
 
 
-from .views import Cron_TaskView
+from .views import Cron_TaskView,All_Cron_TaskView
 
 urlpatterns = [
     path('',Cron_TaskView.as_view(),name='cron_tasks'),
+    path('task/taks_list/',All_Cron_TaskView.as_view(),name='task_list')
 
 ]
 

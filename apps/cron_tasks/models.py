@@ -11,11 +11,12 @@ class Cron_Task(models.Model):
     )
     task_name = models.CharField(max_length=255,verbose_name="任务名称")
     task_type = models.CharField(max_length=255,verbose_name="任务类型",choices=TASK_TYPE_CHOICES,default='01')
-    task_connent = models.TextField(null=True,blank=True)
+    task_connent = models.TextField(null=True,blank=True,verbose_name="任务内容")
     task_para = models.CharField(max_length=255,verbose_name="任务参数")
     task_sta = models.CharField(max_length=255,verbose_name="任务状态",default='N')
     is_delete = models.CharField(max_length=255,verbose_name="是否删除",default='N')
     exe_host = models.ForeignKey("Server_Host",on_delete=models.SET_NULL, blank=True, null=True,verbose_name="执行机器")
+    task_res = models.TextField(null=True,blank=True,verbose_name="任务结果")
 
     class Meta:
         verbose_name = "任务"
